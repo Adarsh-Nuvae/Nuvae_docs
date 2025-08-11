@@ -6,67 +6,67 @@ flowchart TD
   classDef decision fill:#ABEBC6,stroke:#239B56,stroke-width:2px,color:#1D8348,font-weight:bold;
 
   %% Start
-  A[🔔 **Trigger: Code Push / Manual Run**<br>Starts pipeline when new code is pushed or manually triggered]
+  A["Trigger: Code Push or Manual Run - Starts pipeline when new code is pushed or manually triggered"]
   class A stage;
 
   %% Checkout Code
-  B[📥 **Checkout Repository**<br>Get full source code and git history (fetch-depth=0) to enable semantic-release analysis]
+  B["Checkout Repository - Get full source code and git history (fetch-depth=0) to enable semantic-release analysis"]
   class B step;
 
   %% Setup Node
-  C[⚙️ **Setup Node.js Environment**<br>Prepare Node.js version 20 for semantic-release & npm commands]
+  C["Setup Node.js Environment - Prepare Node.js version 20 for semantic-release and npm commands"]
   class C step;
 
   %% Setup Semantic Release
-  D[📦 **Install Semantic Release Packages**<br>Install semantic-release & plugins locally in an isolated directory]
+  D["Install Semantic Release Packages - Install semantic-release and plugins locally in an isolated directory"]
   class D step;
 
   %% Run Semantic Release
-  E[🚦 **Run Semantic Release**<br>Analyze commits to decide if a new release should be created]
+  E["Run Semantic Release - Analyze commits to decide if a new release should be created"]
   class E step;
 
   %% Check Release Result
-  F{❓ **New Release Published?**<br>Did semantic-release publish a new version?}
+  F{"New Release Published? - Did semantic-release publish a new version?"}
   class F decision;
 
   %% If yes: output release info
-  G[📄 **Extract Release Version Details**<br>Parse major, minor, patch version numbers from release output]
+  G["Extract Release Version Details - Parse major, minor, patch version numbers from release output"]
   class G step;
 
   %% If no: get latest release version
-  H[🔍 **Fetch Latest Release Version**<br>If no new release, retrieve latest version from GitHub releases or use 0.0.0]
+  H["Fetch Latest Release Version - If no new release, retrieve latest version from GitHub releases or use 0.0.0"]
   class H step;
 
   %% Output release info
-  I[📢 **Output Release Version Info**<br>Display new or existing release version details for downstream jobs]
+  I["Output Release Version Info - Display new or existing release version details for downstream jobs"]
   class I step;
 
   %% Build AI Services
-  J[🧠 **Build & Push AI Services Docker Image**<br>Copy Prisma schema, download tiktoken files, build & push image to Azure Container Registry]
+  J["Build and Push AI Services Docker Image - Copy Prisma schema, download tiktoken files, build and push image to Azure Container Registry"]
   class J step;
 
   %% Build Web App
-  K[🌐 **Build & Push Web App Docker Image**<br>Clean tenants folder, setup environment variables, build & push image to ACR]
+  K["Build and Push Web App Docker Image - Clean tenants folder, setup environment variables, build and push image to ACR"]
   class K step;
 
   %% Build Workers
-  L[⚡ **Build & Push Celery Workers Docker Image**<br>Download rate sheets, extract, build & push image to ACR]
+  L["Build and Push Celery Workers Docker Image - Download rate sheets, extract, build and push image to ACR"]
   class L step;
 
   %% Build Prisma
-  M[📚 **Build & Push Prisma Docker Image**<br>Build & push Prisma database layer image]
+  M["Build and Push Prisma Docker Image - Build and push Prisma database layer image"]
   class M step;
 
   %% Build HL7-to-FHIR Converter
-  N[🔄 **Build & Push HL7-to-FHIR Converter Docker Image**<br>Setup Java 17, cache Maven deps, build & push image]
+  N["Build and Push HL7-to-FHIR Converter Docker Image - Setup Java 17, cache Maven dependencies, build and push image"]
   class N step;
 
   %% Deploy Notification
-  O[📲 **Send Microsoft Teams Notification**<br>Notify team about new release status with changelog and build summary]
+  O["Send Microsoft Teams Notification - Notify team about new release status with changelog and build summary"]
   class O step;
 
   %% Deployment job
-  P[🚀 **Deploy Services**<br>Deploy built images using Ansible or other orchestration tooling]
+  P["Deploy Services - Deploy built images using Ansible or other orchestration tooling"]
   class P step;
 
   %% Workflow: start to checkout
@@ -103,10 +103,10 @@ flowchart TD
   %% Add parallel styling to builds
   class J,K,L,M,N stage;
 
-  %% Add style to deploy & notify
+  %% Add style to deploy and notify
   class P,O stage;
 
-  %% Add some extra detailed notes on builds
+  %% Group build steps
   subgraph "Build Components"
     direction TB
     J
