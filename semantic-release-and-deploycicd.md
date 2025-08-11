@@ -162,6 +162,3 @@ Sends a summary of what happened to the team in Microsoft Teams, including the v
 * All updated services built and pushed to registry.
 * Full team notified of deployment status.
 
-```
-
-
