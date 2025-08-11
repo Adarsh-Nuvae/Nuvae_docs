@@ -120,6 +120,7 @@ Every build job:
 ## 📤 Step 3: Send to the Big Warehouse 🏢
 
 **Fun:** All our products (Docker images) go into our **cloud warehouse** so they can be shipped anywhere.
+
 **Tech:** Azure Container Registry stores the built Docker images for deployment.
 
 ---
@@ -157,6 +158,7 @@ flowchart TD
 ## 🛡 Safety Tip
 
 **Fun:** Don’t write the secret recipe on the box! Put it in a locked safe. 🔒
+
 **Tech:** Move all hardcoded credentials (API keys, Azure keys, DB passwords) into **GitHub Secrets**.
 
 ---
