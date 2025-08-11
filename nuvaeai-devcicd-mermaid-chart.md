@@ -61,7 +61,7 @@ flowchart TD
   G3[Login to Azure Container Registry]:::step
   G4[Setup JDK 17]:::step
   G5[Cache Maven dependencies]:::step
-  G6[Build Java app (mvn clean package)]:::step
+  G6[Build Java app -- mvn clean package]:::step
   G7[Generate Docker tags]:::artifact
   G8[Build & push HL7 Converter Docker image]:::step
 
@@ -93,3 +93,4 @@ flowchart TD
   G8 --> H
 
   H --> H1 --> H2 --> H3
+
