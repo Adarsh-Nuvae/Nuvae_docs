@@ -1,4 +1,4 @@
-# Prisma A–Z Guide
+# Prisma Guide
 
 This README will walk you through **everything about Prisma**, from installing it, adding models, running migrations, seeding the database, querying data, and finally deploying your Prisma project.
 
