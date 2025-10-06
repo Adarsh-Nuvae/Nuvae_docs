@@ -5,7 +5,7 @@ This README will walk you through **everything about Prisma**, from installing i
 ---
 
 ## 📦 1. Installation
-
+ 
 First, set up a Node.js project and install Prisma CLI.
 
 ```bash
@@ -257,3 +257,5 @@ Make sure you set environment variables correctly on the production server.
 * [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 * [Prisma Client API Reference](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference)
 * [Prisma Studio](https://www.prisma.io/studio)
+
+
